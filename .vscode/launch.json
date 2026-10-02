@@ -18,6 +18,34 @@
             "justMyCode": true,
             "cwd": "${workspaceFolder}",
             "python": "${workspaceFolder}/.venv/bin/python"
+        },
+        {
+            "name": "PDFStract: chunk + embeddings (OpenAI)",
+            "type": "debugpy",
+            "request": "launch",
+            "python": "${workspaceFolder}/.venv/bin/python",
+            "program": "${workspaceFolder}/cli.py",
+            "cwd": "${workspaceFolder}",
+            "envFile": "${workspaceFolder}/.env",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": [
+                "convert-chunk-embed",
+                "Martin-Kleppmann---Designing-Data-Intensive-Applications_-O’Reilly-Media-(2017).pdf",
+                "--library",
+                "pymupdf4llm",
+                "--chunker",
+                "token",
+                "--embedding",
+                "openai",
+                "--chunk-size",
+                "800",
+                "--chunk-overlap",
+                "100",
+                "--output",
+                "results/ddia_chunks_embeddings.json",
+                "--save-converted"
+            ]
         }
     ]
 }
